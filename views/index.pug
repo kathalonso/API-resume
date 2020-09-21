@@ -1,0 +1,37 @@
+doctype html
+html
+    head
+        link(rel="stylesheet", href="/styles.css")
+        title The Professional Chronicles of a Kathalina
+
+    body
+        div(class="container")
+            div(class="header")
+                div(class="logo")
+                    a(href="/")
+                        img(src="/imgs/profilepic.png")
+
+        div(class="content")
+            div(class="title") The Professional Chronicles of a Kathalina
+            div(class="doc-panels")
+                div(class="sidebar")
+                    div(id="get-resume-end-point", class="endpoint newroute")
+                        a(onclick="activateEndpoint('get-resume')")
+                        span(class="get") GET
+                        |  /résumé
+                    div(id="get-experience-id-end-point", class="endpoint")
+                        a(onclick="activateEndpoint('get-experience-id')")
+                        span(class="get") GET
+                        |  /experience/{id}
+                    div(id="post-experience-end-point", class="endpoint")
+                        a(onclick="activateEndpoint('post-experience')")
+                        span(class="post") POST
+                        |  /experience
+                div(id="get-resume-doc", class="doc hidden")
+                    include partials/getAllResume.pug
+                div(id="get-experience-id-doc", class="doc hidden")
+                    include partials/getExpById.pug
+                div(id="post-experience-doc", class="doc hidden")
+                    include partials/postNewExp.pug
+
+                    
