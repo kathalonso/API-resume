@@ -1,8 +1,8 @@
 const resume = {
-  about: [{
+  about: {
     name: 'Kathalina Alonso',
     title: 'Analytical Linguist and Web Developer'
-  }],
+  },
   experience: [{
     id: 1,
     role: 'Voice Technology and Intent Intern',
@@ -45,22 +45,22 @@ const resume = {
     fieldOfStudy: ['Linguistics, French'],
     institution: 'Rutgers University-NB'
   }],
-  skills: [{
+  skills: {
     natLanguages: ['English', 'US Spanish', 'French'],
     scriptLanguages: ['Python', 'JavaScript', 'HTML', 'CSS'],
     servers: ['MySQL', 'AWS Lambda'],
     frameworks: ['Node.js', 'Express.js'],
     tools: ['Git', 'VS Code', 'Praat']
-  }],
-  interests: [{
+  },
+  interests: {
     fieldsOfInterest: ['VUX', 'NLP', 'ASR'],
     hobbies: ['home renovation', 'traveling']
-  }],
-  contact: [{
+  },
+  contact: {
     number: '908-285-7966',
     email: 'kathalonso3@gmail.com',
     social: ['linkedin.com/in/kathalonso', 'github.com/kathalonso']
-  }]
+  }
 }
 
 
