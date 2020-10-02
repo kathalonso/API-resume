@@ -1,24 +1,23 @@
-const resume = require('../resume')
+// const resume = require('../resume')    <--No longer needed
+const models = require('../models')
 
-const getAllResume = (request, response) => {
+const getAllResume = async (request, response) => {
+    const resume = await models.resume.findAll()
     return response.send(resume)
 }
 
-const getExpById = (request, response) => {
-  const { id } = request.params
-
-  const foundExp = resume.experience.filter((experience) => experience.id === parseInt(request.params.id) )
-
+const getExpById =  async (request, response) => {
+  const { id } =  request.params
+  const foundExp = await resume.experience.findOne((experience) => experience.id === parseInt(request.params.id) )
   return response.send(foundExp)
 }
 
-const createNewExp = (request, response) => {
+const createNewExp = async (request, response) => {
   const { id, role, company, summary } = request.body
-
   if (!id || !role || !company || !summary) {
     return response.status(400).send('Oops! The following is required: id, role, company, summary')
   }
-  const newExp = resume.experience.create({ id, role, company, summary })  
+  const newExp = await resume.experience.create({ id, role, company, summary })  
     return response.status(201).send(newExp)
 }
 
@@ -29,7 +28,6 @@ const createNewExp = (request, response) => {
 //       where: { id },
 //       include: [
 //         { model: models.experiences },
-//         // { model: models.ZooKeepers },
 //       ],
 //     })
 
@@ -37,8 +35,8 @@ const createNewExp = (request, response) => {
 
 //     if (experience.protected) return response.status(409).send('Cannot delete protected experiences')
 
-//     // if (department.animals.length || department.zooKeepers.length) {
-//     //   return response.status(409).send('Cannot delete departments that have animals or zoo keepers in them')
+//     // if (X || Y) {
+//     //   return response.status(409).send('Cannot delete')
 //     // }
 
 //     await models.experiences.destroy({ where: { id } })
