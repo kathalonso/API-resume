@@ -26,11 +26,17 @@ html
                         a(onclick="activateEndpoint('post-experience')")
                             span(class="post") POST
                             |  /experience
+                    //- div(id="delete-experience-end-point", class="endpoint")
+                    //-     a(onclick="activateEndpoint('delete-experience')")
+                    //-         span(class="delete") DELETE
+                    //-         |  /experience/{id}
                 div(id="get-resume-doc", class="doc hidden")
                     include partials/getAllResume.pug
                 div(id="get-experience-id-doc", class="doc hidden")
                     include partials/getExpById.pug
                 div(id="post-experience-doc", class="doc hidden")
                     include partials/postNewExp.pug
+                //- div(id="delete-experience-doc", class="doc hidden")
+                //-     include partials/docs/deleteExp.pug
 
                     
